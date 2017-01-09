@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+{% block title %}WAF Task Table{% endblock %}
+
+{% block page_content %}
+<table class="table table-bordered table-hover">
+  <caption>TestSuite</caption>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Start_Time</th>
+      <th>End_Time</th>
+      <th>Current_Case</th>
+      <th>Case_Run</th>
+      <th>Case_Pass</th>
+      <th>Case_Fail</th>
+      <th>Case_Abort</th>
+      <th>Case_Total</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for tb in l %}
+    <tr>
+        <td><a href="{{ url_for('testcases', ts_id=tb['id']) }}">{{ tb['id'] }}</a></td>
+        <td>{{ tb['name'] }}</td>
+        <td>{{ tb['start_time'] }}</td>
+        <td>{{ tb['end_time'] }}</td>
+        <td>{{ tb['current_case' ]}}</td>
+        <td>{{ tb['case_run'] }}</td>
+        <td>{{ tb['case_pass'] }}</td>
+        <td>{{ tb['case_fail'] }}</td>
+        <td>{{ tb['case_abort' ]}}</td>
+        <td>{{ tb['case_total' ]}}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %} 

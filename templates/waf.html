@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block title %}WAF Task Search{% endblock %}
+
+{% block page_content %}
+<div class="search-all">
+<h3>搜索全部</h3>
+<a class='like-button' href="{{ url_for('testsuite', attribute = 'all') }}">search all</a>
+</div>
+<br>
+<h3>按条件搜索</h3>
+<form id="dreamduform" action="/waf" method="post" style="margin-top:20px">
+    <select size="1" name="attribute" style="height:40px;width:200px" name="select">
+        <option value="id">按id搜索</option>
+        <option value="name">按name搜索</option>
+    </select>
+    <input type="text" name="value" style="height:40px;width:200px;margin-left:10px" placeholder="input sth">
+    <input type="submit" style="margin-left:10px" class="btn btn-default"></input>
+</form>
+{% endblock %}
